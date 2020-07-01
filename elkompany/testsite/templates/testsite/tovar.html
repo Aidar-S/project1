@@ -1,0 +1,21 @@
+{% extends 'testsite/base.html' %}
+
+{% block title %}
+Товары
+{% endblock %}
+
+
+{% block content %}
+<form method="post" class="text-white">
+    {% csrf_token %}
+    <span>Название</span>
+    {{ tovar.name }}<br>
+    <span>Описание</span>
+    {{ tovar.desc }}<br>
+    <span>Цена</span>
+    {{ tovar.price }}<br>
+    <button type="submit" name="save" class="btn btn-success">Добавить</button>
+    <br>
+    <p class="text-danger">{{error}}</p>
+</form>
+{% endblock %}
