@@ -1,31 +1,29 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
-<body class="bg-dark container-fluid">
-<div class="container text-center text-white">
-    <hr class="my-6">
-    <h3>Авторизация</h3>
-    <form method="post" class="form-signin">
-        {% csrf_token %}
-        <hr class="my-2">
-        <div class="form-label-group col-md-12">
-            {{ Form.username }}
-        </div>
-        <hr class="my-2">
-        <div class="form-label-group col-md-12">
-            {{ Form.password }}
-        </div>
-        <hr class="my-2">
-        <button class="btn  btn-primary text-uppercase" type="submit">
-            Вход
-        </button>
-        <hr class="my-4">
-    </form>
-</div>
-</body>
-</html>
+{% extends 'testsite/base_aut_aft.html' %}
+
+{% block head_name %}
+Авторизация
+{% endblock %}
+
+
+{% block user_name %}
+Имя пользователя: <br>
+<p>{{ Form.username }}</p>
+{% endblock %}
+
+{% block password %}
+Пароль: <br>
+<p>{{ Form.password }}</p>
+{% endblock %}
+
+
+{% block sing-in-text %}
+<button class="btn  btn-primary text-uppercase" type="submit">
+    Вход
+</button>
+{% endblock %}
+
+{% block create_user %}
+<button class="btn  btn-primary text-uppercase">
+    <a href="{% url 'register' %}">Регистрация</a>
+</button>
+{% endblock %}

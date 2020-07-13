@@ -1,0 +1,37 @@
+hr {
+    border-top: 1px solid rgba(0,0,0,0);
+}
+
+.back-block {
+    border-radius: 10px;
+    padding-bottom: 25px;
+}
+
+.container {
+        max-width: 540px;
+}
+
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+    text-decoration: none;
+    color:white;
+}
+
+.content {
+    height: 100vh;
+    padding: 10px;
+    padding-left:25px;
+    padding-right:25px;
+    max-width: 1140px;
+}
+
+.text-radius-color {
+    background-color: silver;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.border-style {
+    border-radius:25px;
+}

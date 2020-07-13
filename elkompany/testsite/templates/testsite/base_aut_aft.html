@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+</head>
+<body class="bg-secondary container-fluid">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm bg-secondary text-white">
+    <img src="{% static 'Fulltrash_11054.png'%}" width="50" height="50" alt="icon">
+    <h5 class="my-0 mr-md-auto font-weight-normal ">Elkompany</h5>
+</div>
+<div class="container text-center text-white  bg-dark back-block">
+    <hr class="my-6">
+    <h3>{% block head_name %}{% endblock %}</h3>
+    <form method="post" class="form-signin">
+        {% csrf_token %}
+        <hr class="my-2">
+        <div class="form-label-group col-md-12">
+           {% block user_name %}{% endblock %}
+        </div>
+        <hr class="my-2">
+        <div class="form-label-group col-md-12">
+            {% block password %}{% endblock %}
+        </div>
+        <hr class="my-2">
+        <div class="form-label-group col-md-12">
+            {% block password2 %}{% endblock %}
+        </div>
+        <hr class="my-2">
+        {% block sing-in-text %}{% endblock %}
+
+        <hr class="my-4">
+    </form>
+    {% block create_user %}{% endblock %}
+</div>
+</body>
+</html>

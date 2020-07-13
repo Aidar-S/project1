@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'css/Style.css' %}">
 </head>
-<body class="bg-dark container-fluid">
+<body class="bg-secondary container-fluid">
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm bg-secondary text-white">
-    <a href="{% url 'home' %}"><img src="https://cdn.icon-icons.com/icons2/55/PNG/128/Fulltrash_11054.png" width="50" height="50" alt="icon"></a>
+    <a href="{% url 'home' %}"><img src="{% static 'Fulltrash_11054.png'%}" width="50" height="50" alt="icon"></a>
     <h5 class="my-0 mr-md-auto font-weight-normal ">Elkompany</h5>
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-white" href="{% url 'home' %}">Главная</a>
@@ -16,10 +18,10 @@
     </nav>
 </div>
 
-<div class="container">
+<div class="container content ">
     {% block content %}{% endblock %}
 </div>
-<footer class="footer mt-auto py-3">
+<footer class="footer mt-auto py-3 text-radius-color">
   {% block footer %}{% endblock %}
 </footer>
 </body>

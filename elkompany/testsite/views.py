@@ -1,9 +1,30 @@
 from django.shortcuts import render, redirect
 from .models import Tovar
 from .forms import TovarForm, LoginForm
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import FormView
 
 
 # Create your views here.
+
+class MyRegisterFormView(FormView):
+
+    form_class = UserCreationForm
+
+    success_url = '/'
+
+    #87773275755aA
+
+    template_name = "testsite/registration.html"
+
+    def form_valid(self, form):
+        form.save()
+
+        return super(MyRegisterFormView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        return super(MyRegisterFormView, self).form_valid(form)
+
 
 def get_login(request):
     if request.method == "GET":
