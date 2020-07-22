@@ -6,7 +6,7 @@ from .models import Tovar, Category
 
 @admin.register(Tovar)
 class TovarAdmin(admin.ModelAdmin):
-    list_display = ['name', 'desc', 'price']
+    list_display = ['id', 'name', 'desc', 'price']
     list_filter = ['price']
 
 

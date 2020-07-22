@@ -32,8 +32,11 @@ def get_login(request):
         if form.is_valid():
             form.login_user(request)
             if len(form.errors) == 0:
+                request.session['avtorization'] = True
                 return redirect('home')
     else:
+        if request.session.get('avtorization', False):
+            return redirect('home')
         form = LoginForm()
 
     context = {
