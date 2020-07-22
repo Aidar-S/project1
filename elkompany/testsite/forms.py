@@ -1,15 +1,15 @@
 from .models import Tovar
 from django import forms
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, NumberInput
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
-class TovarForm(ModelForm):
+class TovarForm(forms.ModelForm):
     class Meta:
         model = Tovar
-        fields = ["name", "desc", "price"]
+        fields = ['name', 'desc', 'price']
         widgets = {
             "name": TextInput(attrs={
                 'class': 'form-control',
@@ -19,11 +19,12 @@ class TovarForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': "Введите описание"
             }),
-            "price": TextInput(attrs={
+            "price": NumberInput(attrs={
                 'class': 'form-control',
                 'placeholder': "Введите цену"
             }),
         }
+
 
 
 class LoginForm(forms.Form):
@@ -45,4 +46,4 @@ class RegForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'password1', 'password2')

@@ -1,7 +1,9 @@
 from django.db import models
-
+from django.core.exceptions import ValidationError
 
 # Create your models here.
+
+
 class Category(models.Model):
     name = models.CharField(max_length=100,
                             default="",
@@ -16,17 +18,14 @@ class Category(models.Model):
 
 
 class Tovar(models.Model):
-    category = models.ForeignKey(Category,
-                                 on_delete=models.CASCADE,
-                                 default=1,
-                                 verbose_name="Категория", )
 
     name = models.CharField(max_length=100,
                             default="",
-                            verbose_name="Название", )
+                            verbose_name="Название",)
     desc = models.TextField(default="",
-                            verbose_name="Описание", )
-    price = models.FloatField(verbose_name="Цена", )
+                            verbose_name="Описание",)
+    price = models.FloatField(verbose_name="Цена",
+                              max_length=3,)
 
     def __str__(self):
         return self.name

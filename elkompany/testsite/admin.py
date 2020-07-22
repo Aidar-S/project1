@@ -6,8 +6,8 @@ from .models import Tovar, Category
 
 @admin.register(Tovar)
 class TovarAdmin(admin.ModelAdmin):
-    list_display = ['category', 'name', 'desc', 'price']
-    list_filter = ['category', 'price']
+    list_display = ['name', 'desc', 'price']
+    list_filter = ['price']
 
 
 @admin.register(Category)

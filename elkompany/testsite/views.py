@@ -3,17 +3,17 @@ from .models import Tovar
 from .forms import TovarForm, LoginForm
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseNotFound
 
 
 # Create your views here.
 
 class MyRegisterFormView(FormView):
-
     form_class = UserCreationForm
 
     success_url = '/'
-
-    #87773275755aA
 
     template_name = "testsite/registration.html"
 
@@ -27,16 +27,14 @@ class MyRegisterFormView(FormView):
 
 
 def get_login(request):
-    if request.method == "GET":
-        form = LoginForm()
-
-
-    elif request.method == "POST":
+    if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             form.login_user(request)
             if len(form.errors) == 0:
                 return redirect('home')
+    else:
+        form = LoginForm()
 
     context = {
         'Form': form
@@ -63,7 +61,7 @@ def get_tovar(request):
             tovar.save()
             # return redirect('home')
         else:
-            error = "Ошибка"
+            error = "Ошибка, одно из полей заполнено не корректно"
 
     tovar = TovarForm()
 
@@ -72,3 +70,16 @@ def get_tovar(request):
         'error': error,
     }
     return render(request, 'testsite/tovar.html', context)
+
+
+def tovar_edit(request, pk):
+        tovar = get_object_or_404(Tovar, pk=pk)
+        if request.method == "POST":
+            form = TovarForm(request.POST, instance=tovar)
+            if form.is_valid():
+                tovar.save()
+                return redirect('home')
+        else:
+            form = TovarForm(instance=tovar)
+        return render(request, 'testsite/tovar.html', {'tovar': form})
+
