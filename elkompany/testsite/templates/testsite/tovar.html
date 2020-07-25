@@ -9,31 +9,10 @@
 <form method="post" class="text-white">
     {% csrf_token %}
     {% for each in tovar %}
-        {% if each.errors %}
-            <div class="alert alert-danger">
-                {{ each.errors }}
-            </div>
-        {% endif %}
         {{ each.label }}<br>
         {{ each }}<br>
     {% endfor %}
-
-<!--    <span>Название</span>-->
-<!--    {{ tovar.name }}-->
-<!--    {{ tovar.errors }}<br>-->
-<!--    <span>Описание</span>-->
-<!--    {{ tovar.desc }}-->
-<!--    {{ tovar.errors }}<br>-->
-<!--    <span>Цена</span>-->
-<!--    {{ tovar.price }}-->
-<!--    {{ tovar.error }}<br>-->
     <br><button type="submit" name="save" class="btn btn-success">Добавить</button>
     <p class="text-danger">{{error}}</p>
 </form>
-{% endblock %}
-
-{% block footer %}
-<div class="container text-center">
-    <span class="text-muted">Elkompany 2020</span>
-</div>
 {% endblock %}

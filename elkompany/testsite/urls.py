@@ -7,4 +7,5 @@ urlpatterns = [
     path('home', views.get_index, name='home'),
     path('stock/tovars/', views.get_tovar, name='tovar'),
     path('stock/tovars/<int:pk>/', views.tovar_edit, name='tovar_edit'),
+    path('logout/', views.logout, name='logout')
 ]

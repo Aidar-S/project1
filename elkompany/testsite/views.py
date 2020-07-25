@@ -3,7 +3,7 @@ from .models import Tovar
 from .forms import TovarForm, LoginForm
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseNotFound
 
@@ -23,35 +23,56 @@ class MyRegisterFormView(FormView):
         return super(MyRegisterFormView, self).form_valid(form)
 
     def form_invalid(self, form):
-        return super(MyRegisterFormView, self).form_valid(form)
+        return super(MyRegisterFormView, self).form_invalid(form)
 
 
 def get_login(request):
+    errors = ""
+    username = "not logged in"
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             form.login_user(request)
+            username = form.cleaned_data['username']
             if len(form.errors) == 0:
-                request.session['avtorization'] = True
+                request.session['username'] = username
                 return redirect('home')
+            else:
+                errors = "Логин или пароль были неправильно заполнены!"
+        else:
+            form = LoginForm()
     else:
-        if request.session.get('avtorization', False):
+        if request.session.has_key('username'):
             return redirect('home')
-        form = LoginForm()
+        else:
+            form = LoginForm()
 
     context = {
-        'Form': form
+        'Form': form,
+        'error': errors,
     }
 
     return render(request, 'testsite/login.html', context)
 
 
+def logout(request):
+    try:
+        del request.session['username']
+    except:
+        pass
+    return HttpResponse("<strong>Вы вышли!</strong>")
+
+
 def get_index(request):
     context = {}
-
+    username = request.session['username']
     tovar = Tovar.objects.all()
 
-    context['tovars'] = tovar
+    context = {
+        'tovars': tovar,
+        'username': username,
+
+    }
 
     return render(request, 'testsite/index.html', context)
 
@@ -76,13 +97,12 @@ def get_tovar(request):
 
 
 def tovar_edit(request, pk):
-        tovar = get_object_or_404(Tovar, pk=pk)
-        if request.method == "POST":
-            form = TovarForm(request.POST, instance=tovar)
-            if form.is_valid():
-                tovar.save()
-                return redirect('home')
-        else:
-            form = TovarForm(instance=tovar)
-        return render(request, 'testsite/tovar.html', {'tovar': form})
-
+    tovar = get_object_or_404(Tovar, pk=pk)
+    if request.method == "POST":
+        form = TovarForm(request.POST, instance=tovar)
+        if form.is_valid():
+            tovar.save()
+            return redirect('home')
+    else:
+        form = TovarForm(instance=tovar)
+    return render(request, 'testsite/tovar.html', {'tovar': form})

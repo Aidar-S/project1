@@ -1,26 +1,26 @@
 {% extends 'testsite/base_aut_aft.html' %}
 
 {% block head_name %}
-Регистрация
+    Регистрация
 {% endblock %}
 
 {% block user_name %}
-    Имя пользователя: <br>
-   <p>{{ form.username }}</p>
+    {% for each in form %}
+        {{each.label}}<br>
+        {{ each }}<br>
+        {% if each.errors %}
+            {{ each.errors }}
+        {% endif %}
+    {% endfor %}
+
 {% endblock %}
 
-
-
-{% block password %}
-    Пароль: <br>
-    <p>{{ form.password1 }}</p>
-{% endblock %}
-
-{% block password2 %}
-    Подтверждение пароля: <br>
-    <p>{{ form.password2 }}</p>
-{% endblock %}
 
 {% block sing-in-text %}
-<input type="submit" value="Зарегистрировать">
+  <input type="submit" value="Зарегистрировать">
 {% endblock %}
+
+
+
+
+
