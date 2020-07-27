@@ -11,12 +11,10 @@
 
 {% block filter %}
     <div class="alert bg-info border border-style rounded-top col-md-4">
-        <h3>Фильтрация</h3>
+        <h3 >Фильтрация:</h3>
         {% for a in category %}
-            <p><a href="{% url 'filter' id=a.id %}" >{{a}}</a></p>
+            <p><a href="{% url 'filter' id=a.id %}" ><div class=" border border-style pl-2">{{a}}</div></a></p>
         {% endfor %}
-
-
     </div>
 {% endblock %}
 

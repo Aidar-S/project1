@@ -60,17 +60,17 @@ def logout(request):
         del request.session['username']
     except:
         pass
-    return HttpResponse("<strong>Вы вышли!</strong>")
+    print("<strong>Вы вышли!</strong>")
+    return redirect('login')
 
 
 def get_index(request):
     context = {}
     username = request.session['username']
-    categ_tovar = TovarForm()
     tovar = Tovar.objects.all()
-
+    category = Category.objects.all()
     context = {
-        'category': categ_tovar,
+        'category': category,
         'tovars': tovar,
         'username': username,
 
