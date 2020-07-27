@@ -9,14 +9,30 @@
   <strong>Добро пожаловать {{ username }}</strong>
 {% endblock %}
 
+{% block filter %}
+    <div class="alert bg-info border border-style rounded-top col-md-4">
+        <h3>Фильтрация</h3>
+        {% for a in category %}
+            <p><a href="{% url 'filter' id=a.id %}" >{{a}}</a></p>
+        {% endfor %}
+
+
+    </div>
+{% endblock %}
+
 {% block content %}
 
 {% if tovars %}
 {% for each in tovars %}
-<div class=" alert bg-info border border-style rounded-top">
-    <h3>{{ each.name }}</h3>
-    <h5>{{ each.price }} тенге</h5>
-    <p>{{ each.desc }}</p>
+<div class=" alert bg-info border border-style rounded-top col-md-8">
+    <h1><span class="text-white">Категория:</span><br>
+     {{ each.pk }}    {{ each.category }}</h1>
+    <h3><span class="text-white">Название:</span><br>
+        {{ each.name }}</h3>
+    <h5><span class="text-white">Цена:</span><br>
+        {{ each.price }} тенге</h5>
+    <p><span class="text-white">Описание:</span><br>
+        {{ each.desc }}</p>
     <p><a href="{% url 'tovar_edit' pk=each.pk %}" >Изменить</a></p>
 </div>
 {% endfor %}

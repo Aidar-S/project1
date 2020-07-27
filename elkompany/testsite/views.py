@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Tovar
+from .models import Tovar, Category
 from .forms import TovarForm, LoginForm
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
@@ -28,7 +28,7 @@ class MyRegisterFormView(FormView):
 
 def get_login(request):
     errors = ""
-    username = "not logged in"
+    username = "Вход не выполнен!"
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -66,9 +66,26 @@ def logout(request):
 def get_index(request):
     context = {}
     username = request.session['username']
+    categ_tovar = TovarForm()
     tovar = Tovar.objects.all()
 
     context = {
+        'category': categ_tovar,
+        'tovars': tovar,
+        'username': username,
+
+    }
+
+    return render(request, 'testsite/index.html', context)
+
+
+def get_filter(request, id):
+    context = {}
+    username = request.session['username']
+    tovar = Tovar.objects.filter(category=id)
+    category = Category.objects.all()
+    context = {
+        'category': category,
         'tovars': tovar,
         'username': username,
 

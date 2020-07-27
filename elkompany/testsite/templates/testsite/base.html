@@ -10,7 +10,7 @@
 </head>
 <body class="bg-secondary container-fluid">
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm bg-secondary text-white">
-    <a href="{% url 'home' %}"><img src="{% static 'Fulltrash_11054.png'%}" width="50" height="50" alt="icon"></a>
+    <a href="{% url 'home'  %}"><img src="{% static 'Fulltrash_11054.png'%}" width="50" height="50" alt="icon"></a>
     <h5 class="my-0 mr-md-auto font-weight-normal ">Elkompany</h5>
     <div class="ml-auto mr-auto">
         {% block user %}{% endblock %}
@@ -22,8 +22,8 @@
         <a class="p-2 text-white" href="{% url 'logout' %}">Выйти</a>
     </nav>
 </div>
-
-<div class="container content ">
+<div class="container content">
+    {% block filter %}{% endblock %}
     {% block content %}{% endblock %}
 </div>
 </body>

@@ -1,6 +1,6 @@
 from .models import Tovar
 from django import forms
-from django.forms import ModelForm, TextInput, NumberInput
+from django.forms import TextInput, NumberInput, Select
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -9,8 +9,12 @@ from django.contrib.auth.models import User
 class TovarForm(forms.ModelForm):
     class Meta:
         model = Tovar
-        fields = ['name', 'desc', 'price']
+        fields = ['category', 'name', 'desc', 'price']
         widgets = {
+            "category": Select(attrs={
+                'class': 'form-control',
+                'placeholder': "Выберите категорию"
+            }),
             "name": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': "Введите название"
