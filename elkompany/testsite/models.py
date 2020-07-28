@@ -21,8 +21,6 @@ class Category(models.Model):
 class Tovar(models.Model):
     category = models.ForeignKey(Category,
                                  on_delete=models.CASCADE,
-                                 null=True,
-                                 blank=True,
                                  default=0,
                                  verbose_name='Категория')
 
