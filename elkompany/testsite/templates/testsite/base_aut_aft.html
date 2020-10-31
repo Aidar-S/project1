@@ -2,39 +2,53 @@
 {% load static %}
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/Style.css' %}">
 </head>
-<body class="bg-secondary container-fluid">
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm bg-secondary text-white">
-    <img src="{% static 'Fulltrash_11054.png'%}" width="50" height="50" alt="icon">
-    <h5 class="my-0 mr-md-auto font-weight-normal ">Elkompany</h5>
+<body class="bg-secondary container-fluid ">
+<div class="container-fluid top-panel-reg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4 col-xs-12 LOGO">
+                    <img src="{%static 'img/logo-img.png'%}" width="49" height="50" class="image-logo">
+                    <h1 class="logo-text">Realestate Company</h1>
+                    <h2 class="logo-text2">Lorem Ipsum is simply dummy text</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="container text-center text-white  bg-dark back-block">
-    <hr class="my-6">
-    <h3>{% block head_name %}{% endblock %}</h3>
-    <form method="post" class="form-signin">
-        {% csrf_token %}
-        <hr class="my-2">
-        <div class="form-label-group col-md-12">
-           {% block user_name %}{% endblock %}
+
+<div class="container-fluid text-center text-white back-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 log-subscribe mt-4 pt-4 pb-4">
+                <h3>{% block head_name %}{% endblock %}</h3>
+                <form method="post" class="form-signin">
+                    {% csrf_token %}
+                    <div class="form-label-group col-md-12">
+                        {% block user_name %}{% endblock %}
+                    </div>
+                    <div class="form-label-group col-md-12">
+                        {% block password %}{% endblock %}
+                    </div>
+                    <div class="form-label-group col-md-12">
+                        {% block password2 %}{% endblock %}
+                    </div>
+                    {% block sing-in-text %}{% endblock %}
+                    {% block create_user %}{% endblock %}
+                </form>
+            </div>
+            <div class="col-md-4"></div>
         </div>
-        <hr class="my-2">
-        <div class="form-label-group col-md-12">
-            {% block password %}{% endblock %}
-        </div>
-        <hr class="my-2">
-        <div class="form-label-group col-md-12">
-            {% block password2 %}{% endblock %}
-        </div>
-        <hr class="my-2">
-        {% block sing-in-text %}{% endblock %}
-        <hr class="my-4">
-    </form>
-    {% block create_user %}{% endblock %}
+    </div>
 </div>
 </body>
 </html>

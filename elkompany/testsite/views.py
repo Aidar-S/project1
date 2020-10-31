@@ -3,9 +3,7 @@ from .models import Tovar, Category
 from .forms import TovarForm, LoginForm
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponseNotFound
 
 
 # Create your views here.

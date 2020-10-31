@@ -1,22 +1,29 @@
 {% extends 'testsite/base_aut_aft.html' %}
 
 {% block head_name %}
-    Регистрация
+Регистрация
 {% endblock %}
 
-{% block user_name %}
-    {% for each in form %}
-        {{each.label}}<br>
-        {{ each }}<br>
-        {% if each.errors %}
-            {{ each.errors }}
-        {% endif %}
-    {% endfor %}
-{% endblock %}
+{% block password2 %}
 
+{% for each in form %}
+    {{each.label}}<br>
+    {{ each }}<br>
+    {% if each.errors %}
+        {{ each.errors }}
+    {% endif %}
+    {% endfor %}<br>
+{% endblock %}
 
 {% block sing-in-text %}
-  <input type="submit" value="Зарегистрировать">
+<button class="btn  btn-primary text-uppercase" aria-pressed="true" type="submit">
+    Зарегистрировать
+</button>
+{% endblock %}
+{% block create_user %}
+<button class="btn  btn-primary text-uppercase" aria-pressed="true">
+    <a href="{% url 'login' %}">Войти</a>
+</button>
 {% endblock %}
 
 

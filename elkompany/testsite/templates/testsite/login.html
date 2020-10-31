@@ -7,19 +7,19 @@
 
 {% block user_name %}
 Имя пользователя: <br>
-<p>{{ Form.username }}</p>
+{{ Form.username }}
 {% endblock %}
 
 {% block password %}
 Пароль: <br>
-<p>{{ Form.password }}</p>
+{{ Form.password }}
 <p>{{error}}</p>
 {% endblock %}
 
 
 {% block sing-in-text %}
 <button class="btn  btn-primary text-uppercase" type="submit">
-    Вход
+    Войти
 </button>
 {% endblock %}
 

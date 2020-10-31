@@ -1,12 +1,271 @@
 {% extends 'testsite/base.html' %}
-
+{% load static %}
 
 {% block title %}
 Главная
 {% endblock %}
 
 {% block user %}
-  <strong>Добро пожаловать {{ username }}</strong>
+  <strong>{{ username }}</strong>
+{% endblock %}
+
+{% block head-content %}
+    <div class="head">
+		<div class="container ">
+			<div class="row sizing">
+
+
+				<div id="carousel-example-generic" class="padding-zero col-md-6 col-xs-12  b carousel slide" data-ride="carousel">
+					<div class="carousel-position">
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="{% static 'img/center-content-img.png' %}" class="size" alt="office"  >
+							<div class="carousel-caption">
+
+							</div>
+						</div>
+						<div class="item">
+							<img src="{% static 'img/luxfon.com-38041.jpg' %} " class="size" alt="cat" >
+							<div class="carousel-caption">
+
+							</div>
+						</div>
+						<div class="item">
+							<img src=" {% static 'img/acoustic_guitar_black_and_white_box_guitar_grain_guitar_music_musician_play-1056236 (1).jpg' %} " class="size" alt="guitar">
+							<div class="carousel-caption">
+
+							</div>
+						</div>
+						<div class="item">
+							<img src="{% static 'img/cat_grass_collar_rest_light-720415.jpg' %}" class="size" alt="cat" >
+							<div class="carousel-caption">
+
+							</div>
+						</div>
+						<div class="item">
+							<img src="{% static 'img/3d_17_hell.jpg' %}" class="size" alt="cat" >
+							<div class="carousel-caption">
+
+							</div>
+						</div>
+					</div>
+  					</div>
+  					<ol class="carousel-indicators">
+    					<li data-target="#carousel-example-generic" data-slide-to="0" class="active circel-color"></li>
+    					<li data-target="#carousel-example-generic" data-slide-to="1" class="circel-color"></li>
+    					<li data-target="#carousel-example-generic" data-slide-to="2" class="circel-color"></li>
+    					<li data-target="#carousel-example-generic" data-slide-to="3" class="circel-color"></li>
+    					<li data-target="#carousel-example-generic" data-slide-to="4" class="circel-color"></li>
+
+  					</ol>
+					<!--<div class="col-md-12 scroll-center-content">
+					<img src="img/boolyens.png" class="size">-->
+				</div>
+
+
+
+				<div class="col-md-4 col-xs-10 c hidden-xs">
+					<ul class="nav nav-tabs border-none">
+						<li class="panel1-color"><a data-toggle="tab" href="#panel1" class="col-text">Tenants</a></li>
+					</ul>
+					<div class="tab-content tab-width">
+						<div id="panel1" class="tab-pane fade in active form-text panel1-form margin-zero">
+							<h4 class="margin-zero text-16">Address, Suburbs, Postcodes, or Regions</h4>
+							<form class="c-t">
+								<fieldset>
+									<p><input id="input" placeholder="Example: Wichita Falls, Texas 76301" class="input-text"></p>
+									<p class="check"><input type="checkbox" ><span class="c-t">  Include surrounding suburbs</span></p>
+									<label for="inputLogin"> </label>
+									<div class="form-group">
+										<label for="inputLogin" class="text-select">Property Type :</label>
+										<select class="form-control mr-sm-2" id="inlineFormCustomSelect">
+        								<option selected>Select one</option>
+       									<option value="1">One</option>
+       									<option value="2">Two</option>
+        								<option value="3">Three</option>
+     									</select>
+     								</div>
+     								<div class="form-group">
+     									<label for="inputLogin" class="text-select2">Bedrooms :</label>
+										<select class="form-control mr-sm-2" id="inlineFormCustomSelect">
+        								<option selected>Select one</option>
+       									<option value="1">One</option>
+       									<option value="2">Two</option>
+        								<option value="3">Three</option>
+     									</select>
+     								</div>
+     								<button type="submit" class="btn btn-default btn-position padding-zero">Search</button>
+								</fieldset>
+							</form>
+						</div>
+
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+{% block middle-content %}
+    <div class="img-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 crumps">
+					<div class="col-md-4 col-xs-12 content2">
+						<img src="{% static 'img/Home.png' %}" class="img-home1"><span  class="text-home1">Buy a home</span>
+						<p class="text1-home1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
+					</div>
+					<div class="col-md-4 col-xs-12 content2">
+						<img src="{% static 'img/Home.png' %}" class="img-home1"><span  class="text-home1">Sell a home</span>
+						<p class="text1-home1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an</p>
+					</div>
+					<div class="col-md-4 col-xs-12 content2">
+						<img src="{% static 'img/Home.png' %}" class="img-home1"><span  class="text-home1">Rent a home</span>
+						<p class="text1-home1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block bottom-content %}
+    <div class="container">
+		<div class="row main-row col-md-12 padding-zero">
+
+			<div class="col-md-3 col-xs-12 image">
+				<div class="col-md-12 img-central padding-zero">
+					<img src="{%static 'img/img-content.png' %}" class="padding-zero center-img">
+				</div>
+				<div class="col-md-12 padding-zero text-color">
+				<div class="col-md-9 text-central">
+					<p class="margin-zero">4605 Bayonne Courts</p>
+					<p class="margin-zero">Arlington, TX 76016</p>
+				</div>
+				<div class="col-md-3 img-seacrh">
+					<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+				</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-xs-12 image ">
+				<div class="col-md-12 img-central">
+					<img src="{%static 'img/img-content.png' %}" class="padding-zero ">
+				</div>
+				<div class="col-md-12 padding-zero text-color">
+				<div class="col-md-9 text-central">
+					<p class="margin-zero">460Courts</p>
+					<p class="margin-zero">Arlington, TX 76016</p>
+				</div>
+				<div class="col-md-3 img-seacrh">
+					<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+				</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3 col-xs-12 image ">
+
+				<div class="col-md-12 img-central">
+					<img src="{%static 'img/img-content.png' %}" class="padding-zero ">
+				</div>
+				<div class="col-md-12 padding-zero text-color">
+				<div class="col-md-9 text-central">
+					<p class="margin-zero">4605 Bayonne Courts</p>
+					<p class="margin-zero">Arlington, TX 76016</p>
+				</div>
+				<div class="col-md-3 img-seacrh">
+					<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+				</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3 col-xs-12 image">
+
+				<div class="col-md-12 img-central">
+					<img src="{%static 'img/img-content.png' %}" class="padding-zero ">
+				</div>
+				<div class="col-md-12 padding-zero text-color">
+				<div class="col-md-9 text-central">
+					<p class="margin-zero">4605 Bayonne Courts</p>
+					<p class="margin-zero">Arlington, TX 76016</p>
+				</div>
+				<div class="col-md-3 img-seacrh">
+					<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+				</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3 col-xs-12 image ">
+
+				<div class="col-md-12 img-central">
+					<img src="{%static 'img/img-content.png' %}" class="padding-zero ">
+				</div>
+				<div class="col-md-12 padding-zero text-color">
+				<div class="col-md-9 text-central">
+					<p class="margin-zero">4605 Bayonne Courts</p>
+					<p class="margin-zero">Arlington, TX 76016</p>
+				</div>
+				<div class="col-md-3 img-seacrh">
+					<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+				</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3 col-xs-12 image ">
+
+				<div class="col-md-12 img-central">
+					<img src="{%static 'img/img-content.png' %}" class="padding-zero ">
+				</div>
+				<div class="col-md-12 padding-zero text-color">
+				<div class="col-md-9 text-central">
+					<p class="margin-zero">4605 Bayonne Courts</p>
+					<p class="margin-zero">Arlington, TX 76016</p>
+				</div>
+				<div class="col-md-3 img-seacrh">
+					<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+				</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-3 col-xs-12 image ">
+				<div class="">
+					<div class="col-md-12 img-central">
+						<img src="{%static 'img/img-content.png' %}" class="padding-zero ">
+					</div>
+					<div class="col-md-12 padding-zero text-color">
+					<div class="col-md-9 text-central">
+						<p class="margin-zero">4605 Bayonne Courts</p>
+						<p class="margin-zero">Arlington, TX 76016</p>
+					</div>
+					<div class="col-md-3 img-seacrh">
+						<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+					</div>
+					</div>
+				</div>
+			</div>
+
+			<di2v class="col-md-3 col-xs-12 image ">
+
+				<div class="col-md-12 img-central">
+					<img src="{%static 'img/img-content.png' %}" class="padding-zero ">
+				</div>
+				<div class="col-md-12 padding-zero text-color">
+				<div class="col-md-9 text-central">
+					<p class="margin-zero">4605 Bayonne Courts</p>
+					<p class="margin-zero">Arlington, TX 76016</p>
+				</div>
+				<div class="col-md-3 img-seacrh">
+					<a href="#"><img src="{%static 'img/seacrh.png'%}"></a>
+				</div>
+				</div>
+
+			</div>
+		</div>
 {% endblock %}
 
 {% block filter %}
